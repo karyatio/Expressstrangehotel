@@ -5,13 +5,13 @@ var Op = require("sequelize").Op;
 
 router.get("/", (req, res) => {
   /*
-   * GET rooms/
+   * GET api/rooms/
    * this function display all rooms
    */
 
   Room.findAll()
     .then(rooms => {
-      res.status(200).json({ rooms: rooms });
+      res.status(200).json({ data: rooms, message: "Sucessfuly adding room" });
     })
     .catch(err => {
       res.status(500).json({ err: err });
@@ -20,7 +20,7 @@ router.get("/", (req, res) => {
 
 router.post("/", (req, res) => {
   /*
-   * POST rooms/
+   * POST api/rooms/
    * this function add rooms
    */
 
@@ -30,7 +30,7 @@ router.post("/", (req, res) => {
     .then(room => {
       res
         .status(201)
-        .json({ room: room, message: "Successfully creating room" });
+        .json({ data: room, message: "Successfully creating room" });
     })
     .catch(err => {
       console.log(err);
@@ -40,7 +40,7 @@ router.post("/", (req, res) => {
 
 router.get("/:id", (req, res) => {
   /*
-   * GET rooms/2
+   * GET api/rooms/2
    * this function get a single room
    */
 
@@ -60,7 +60,7 @@ router.get("/:id", (req, res) => {
 
 router.put("/:id", (req, res) => {
   /*
-   * PUT rooms/2
+   * PUT api/rooms/2
    * Update single room
    */
 
@@ -73,7 +73,7 @@ router.put("/:id", (req, res) => {
         return room.update({ roomNumber }).then(room => {
           res
             .status(201)
-            .json({ room: room, message: "Successfully update room" });
+            .json({ data: room, message: "Successfully update room" });
         });
       } else {
         res.status(400).json({ message: "room not found" });
@@ -92,14 +92,13 @@ router.delete("/:id", (req, res) => {
    */
 
   const { id } = req.params;
-  const { roomNumber } = req.body;
 
   Room.findOne({ where: { id: { [Op.eq]: id } } })
     .then(room => {
       return room.destroy();
     })
     .then(room => {
-      res.status(200).json({ room: room, message: "Successfully delete room" });
+      res.status(200).json({ data: room, message: "Successfully delete room" });
     })
     .catch(err => {
       console.log(err);
