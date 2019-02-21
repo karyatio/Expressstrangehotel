@@ -28,7 +28,11 @@ describe("/GET guest", () => {
 	});
 });
 
-describe("/POST post guest", () => {
+describe("/POST guest", () => {
+	/*
+	 * POST api/guests
+	 *
+	 */
 	it("Should create new guest", (done) => {
 		chai
 			.request(app)
@@ -48,7 +52,11 @@ describe("/POST post guest", () => {
 	});
 });
 
-describe("/PUT update guest", () => {
+describe("/PUT/:id guest", () => {
+	/*
+	 * PUT api/guests/1
+	 *
+	 */
 	it("Should Update Satuan", (done) => {
 		chai
 			.request(app)
@@ -65,7 +73,11 @@ describe("/PUT update guest", () => {
 	});
 });
 
-describe("/DELETE delete guest", () => {
+describe("/DELETE/:id guest", () => {
+	/*
+	 * DELETE api/guests/1
+	 *
+	 */
 	it("Should delete guest ", function(done) {
 		chai
 			.request(app)
