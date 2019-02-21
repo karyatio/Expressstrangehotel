@@ -1,4 +1,22 @@
 {
+<<<<<<< HEAD
+	"name": "latihan",
+	"version": "0.0.0",
+	"private": true,
+	"scripts": {
+		"start": "nodemon ./bin/www"
+	},
+	"dependencies": {
+		"cookie-parser": "~1.4.3",
+		"debug": "~2.6.9",
+		"express": "~4.16.0",
+		"http-errors": "~1.6.2",
+		"jade": "~1.11.0",
+		"morgan": "~1.9.0",
+		"mysql2": "^1.6.5",
+		"sequelize": "^4.42.0"
+	}
+=======
   "name": "latihan",
   "version": "0.0.0",
   "private": true,
@@ -19,4 +37,5 @@
     "mysql2": "^1.6.5",
     "sequelize": "^4.42.0"
   }
+>>>>>>> 3353b5e3b8054b9e01a94a806678a2bae71940f5
 }
