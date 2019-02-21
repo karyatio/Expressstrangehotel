@@ -5,12 +5,12 @@ const Op = require("sequelize");
 
 router.get("/", (req, res) => {
 	/*
-	 * GET guest
+	 * GET api/guest
 	 * this function display all guest
 	 */
 	Guest.findAll()
 		.then((guest) => {
-			res.status(200).json({ message: "Success read guest", guest: guest });
+			res.status(200).json({ message: "Success read guest", data: guest });
 		})
 		.catch((err) => {
 			console.log(err);
@@ -20,14 +20,14 @@ router.get("/", (req, res) => {
 
 router.post("/", (req, res) => {
 	/*
-	 * POST guest
+	 * POST api/guest
 	 * this function add guest
 	 */
 
 	const { name } = req.body;
 	Guest.create({ name })
 		.then((guest) => {
-			res.status(201).json({ message: "Success create guest", guest: guest });
+			res.status(201).json({ message: "Success create guest", data: guest });
 		})
 		.catch((err) => {
 			console.log(err);
@@ -37,7 +37,7 @@ router.post("/", (req, res) => {
 
 router.put("/:id", (req, res) => {
 	/*
-	 * PUT guest/2
+	 * PUT api/guest/2
 	 * this function update guest
 	 */
 	const guestId = req.params.id;
@@ -62,7 +62,7 @@ router.put("/:id", (req, res) => {
 
 router.delete("/:id", (req, res) => {
 	/*
-	 *DELETE guest/2
+	 *DELETE api/guest/2
 	 *
 	 */
 	const guestId = req.params.id;
